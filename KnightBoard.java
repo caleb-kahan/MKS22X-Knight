@@ -17,13 +17,15 @@ public class KnightBoard{
       return String.format(formatter,(Object[])values);
     }
     public boolean solve(int startingRow, int startingCol){
-      if(startingRow < 0 || startingCol < 0 ||)
+      if(startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[0].length)
+        throw IllegalArgumentException("Parameter Out of Bounds");
       for(int [] row: board){
         for(int value: row){
           if(value!=0)
             throw IllegalStateException("Non-0 Values on Board!!");
         }
       }
+      return solveH(startingRow, startingCol, 1);
     }
     private boolean solveH(int row int col, int level){
       board[row][col]=level;
