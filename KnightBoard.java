@@ -4,7 +4,7 @@ public class KnightBoard{
       if(startingCols <=0 || startingRows<=0)throw IllegalArgumentException("A parameter is less than 1");
       board = new int [startingRows][startingCols];
     }
-    /*public String toString(){
+    public String toString(){
       String formatter = "";
       String [] values = new int[board.length*board[0].length];
       for(int [] row: board){
@@ -15,6 +15,6 @@ public class KnightBoard{
         formatter +="%n";
       }
       return String.format(formatter,(Object[])values);
-    }*/
+    }
 
 }
