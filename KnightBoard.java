@@ -16,5 +16,18 @@ public class KnightBoard{
       }
       return String.format(formatter,(Object[])values);
     }
+    public boolean solve(int startingRow, int startingCol){
+      if(startingRow < 0 || startingCol < 0 ||)
+      for(int [] row: board){
+        for(int value: row){
+          if(value!=0)
+            throw IllegalStateException("Non-0 Values on Board!!");
+        }
+      }
+    }
+    private boolean solveH(int row int col, int level){
+      board[row][col]=level;
+      if(level==board.length*board[0].length) return true;
 
+    }
 }
