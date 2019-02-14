@@ -27,9 +27,12 @@ public class KnightBoard{
       }
       return solveH(startingRow, startingCol, 1);
     }
-    private boolean solveH(int row int col, int level){
+    private boolean solveH(int row, int col, int level){
       board[row][col]=level;
       if(level==board.length*board[0].length) return true;
-      
+      ArrayList <MoverV1> movers = MoverV1.pos();
+
+
     }
+    private static checker(int row, int col)
 }
