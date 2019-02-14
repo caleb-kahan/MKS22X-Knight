@@ -17,7 +17,7 @@ public class KnightBoard{
       return String.format(formatter,(Object[])values);
     }
     public boolean solve(int startingRow, int startingCol){
-      if(startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[0].length)
+      if(! checker(startingRow,startingCol))
         throw IllegalArgumentException("Parameter Out of Bounds");
       for(int [] row: board){
         for(int value: row){
