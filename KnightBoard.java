@@ -31,6 +31,13 @@ public class KnightBoard{
       board[row][col]=level;
       if(level==board.length*board[0].length) return true;
       ArrayList <MoverV1> movers = MoverV1.pos();
+      for(MoverV1 mover: movers){
+        int hor = mover.getHor();
+        int ver = mover.getVer();
+        if(checker(hor,ver)){
+          if(solveH(hor,ver))return true;
+        }
+      }
     }
     private static boolean checker(int row, int col){
         if(startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[0].length)
