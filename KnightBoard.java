@@ -38,10 +38,23 @@ public class KnightBoard{
           if(solveH(hor,ver))return true;
         }
       }
+      return false;
     }
     private static boolean checker(int row, int col){
         if(startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[0].length)
           return false;
         return true;
     }
+    public int countSolutions(int startingRow, int startingCol){
+      if(! checker(startingRow,startingCol))
+        throw IllegalArgumentException("Parameter Out of Bounds");
+      for(int [] row: board){
+        for(int value: row){
+          if(value!=0)
+            throw IllegalStateException("Non-0 Values on Board!!");
+        }
+      }
+
+
+
 }
