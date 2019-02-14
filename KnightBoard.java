@@ -31,8 +31,10 @@ public class KnightBoard{
       board[row][col]=level;
       if(level==board.length*board[0].length) return true;
       ArrayList <MoverV1> movers = MoverV1.pos();
-
-
     }
-    private static checker(int row, int col)
+    private static boolean checker(int row, int col){
+        if(startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[0].length)
+          return false;
+        return true;
+    }
 }
