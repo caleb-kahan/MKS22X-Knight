@@ -30,7 +30,38 @@ public class KnightBoard{
     public void recurCircular(int start, int end, int round){
       int cornerValue;
       int middleValue;
-      
+      switch(round){
+        case 1:
+          cornerValue=2;
+          middleValue=3;
+          break;
+        case 2:
+          cornerValue=4;
+          middleValue=6;
+          break;
+        default:
+          cornerValue=8;
+          middleValue=8;
+      }
+      MoverV1 velocity = new MoverV1(1,0);
+      MoverV1 position = new MoverV1(0,0);
+      while(position.hor()!=0 || position.ver()!=1){
+        if(position.hor==end && position.ver==start){
+          velocity.hor=0;
+          velocity.ver=1;
+        }
+        else if(position.hor==end && position.ver==end){
+          velocity.hor=-1;
+          velocity.ver=0;
+        }
+        else if(position.hor==0 && position.ver==end){
+          velocity.hor=0;
+          velocity.ver=1;
+        }
+
+      }
+
+
     }
     public String toString(){
       String formatter = "";
