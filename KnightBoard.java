@@ -3,7 +3,7 @@ public class KnightBoard{
     private int [][] board;
     private int [][] complicatedBoard;
     public KnightBoard(int startingRows, int startingCols){
-      if(startingCols <=0 || startingRows<=0)throw IllegalArgumentException("A parameter is less than 1");
+      if(startingCols <=0 || startingRows<=0)throw new IllegalArgumentException("A parameter is less than 1");
       board = new int [startingRows][startingCols];
       complicatedBoard = new int [startingRows][startingCols];
       maker(complicatedBoard);
@@ -75,11 +75,11 @@ public class KnightBoard{
     }
     public boolean solve(int startingRow, int startingCol){
       if(! checker(startingRow,startingCol))
-        throw IllegalArgumentException("Parameter Out of Bounds");
+        throw  new IllegalArgumentException("Parameter Out of Bounds");
       for(int [] row: board){
         for(int value: row){
           if(value!=0)
-            throw IllegalStateException("Non-0 Values on Board!!");
+            throw new IllegalStateException("Non-0 Values on Board!!");
         }
       }
       return solveH(startingRow, startingCol, 1);
@@ -104,13 +104,14 @@ public class KnightBoard{
     }
     public int countSolutions(int startingRow, int startingCol){
       if(! checker(startingRow,startingCol))
-        throw IllegalArgumentException("Parameter Out of Bounds");
+        throw new IllegalArgumentException("Parameter Out of Bounds");
       for(int [] row: board){
         for(int value: row){
           if(value!=0)
-            throw IllegalStateException("Non-0 Values on Board!!");
+            throw new IllegalStateException("Non-0 Values on Board!!");
         }
       }
+      return countSolutionsH(startingRow, startingCol, 1);
     }
     public int countSolutionsH(int startingRow, int startingCol, int level){
       board[startingRow][startingCol]=level;
