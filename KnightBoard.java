@@ -1,8 +1,12 @@
 public class KnightBoard{
     private int [][] board;
+    private int [][] complicatedBoard;
     public KnightBoard(int startingRows, int startingCols){
       if(startingCols <=0 || startingRows<=0)throw IllegalArgumentException("A parameter is less than 1");
       board = new int [startingRows][startingCols];
+    }
+    public static void maker(int [][] complex){
+
     }
     public String toString(){
       String formatter = "";
@@ -60,6 +64,13 @@ public class KnightBoard{
       if(level==board.length*board[0].length) return 1;
       ArrayList <MoverV1> movers1 = MoverV1.pos();
       ArrayList <MoverV2> movers2 = new ArrayList <MoverV2>();
+      for(MoverV1 mover: movers){
+        int hor = mover.getHor();
+        int ver = mover.getVer();
+        if(checker(startingRow+hor,startingCol+ver)){
+
+        }
+      }
       int sum =0;
       for(MoverV1 mover: movers){
         int hor = mover.getHor();
