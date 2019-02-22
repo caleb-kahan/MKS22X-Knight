@@ -56,7 +56,16 @@ public class KnightBoard{
       }
     }
     public int countSolutionsH(int startingRow, int StartingCol, int level){
-      
+      board[startingRow][startingCol]=level;
+      if(level==board.length*board[0].length) return 1;
+      ArrayList <MoverV1> movers = MoverV1.pos();
+      for(MoverV1 mover: movers){
+        int hor = mover.getHor();
+        int ver = mover.getVer();
+        if(checker(hor,ver)){
+          if(solveH(hor,ver))return true;
+        }
+      }
     }
 
 
