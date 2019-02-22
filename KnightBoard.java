@@ -35,7 +35,7 @@ public class KnightBoard{
         int hor = mover.getHor();
         int ver = mover.getVer();
         if(checker(hor,ver)){
-          if(solveH(hor,ver))return true;
+          if(solveH(hor,ver,level+1))return true;
         }
       }
       return false;
@@ -64,7 +64,7 @@ public class KnightBoard{
         int hor = mover.getHor();
         int ver = mover.getVer();
         if(checker(hor,ver)){
-          sum+=solveH(hor,ver));
+          sum+=countSolutionsH(hor,ver,level+1));
         }
       }
       return sum;
