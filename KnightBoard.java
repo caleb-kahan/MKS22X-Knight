@@ -34,7 +34,7 @@ public class KnightBoard{
           }
           MoverV1 velocity = new MoverV1(1,0);
           MoverV1 position = new MoverV1(start,start);
-          while(position.hor()!=start || position.ver()!=start+1){
+          while(position.hor!=start || position.ver!=start+1){
             if(position.hor==end && position.ver==start){
               velocity.hor=0;
               velocity.ver=1;
