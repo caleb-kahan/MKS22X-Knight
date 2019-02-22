@@ -1,18 +1,12 @@
 import java.util.ArrayList;
 
 public class MoverV1{
-  private int horizontal;
-  private int vertical;
+  public int hor;
+  public int ver;
 
   public MoverV1(int horizontal, int vertical){
-    this.horizontal = horizontal;
-    this.vertical = vertical;
-  }
-  public int getHor(){
-    return horizontal;
-  }
-  public int getVer(){
-    return vertical;
+    this.hor = horizontal;
+    this.ver = vertical;
   }
   public static ArrayList<MoverV1> pos (){
     for(int i=0;i<2;i++){

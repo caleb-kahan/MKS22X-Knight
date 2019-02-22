@@ -5,8 +5,32 @@ public class KnightBoard{
       if(startingCols <=0 || startingRows<=0)throw IllegalArgumentException("A parameter is less than 1");
       board = new int [startingRows][startingCols];
     }
-    public static void maker(int [][] complex){
+    public void maker(int [][] complex){
+      int start =0;
+      int end = board.length-1;
+      MoverV1 velocity = new MoverV1(1,0);
+      MoverV1 position = new MoverV1(0,0);
+      while(position.hor()!=0 || position.ver()!=1){
+        if(position.hor==end && position.ver==start){
+          velocity.hor=0;
+          velocity.ver=1;
+        }
+        else if(position.hor==end && position.ver==end){
+          velocity.hor=-1;
+          velocity.ver=0;
+        }
+        else if(position.hor==0 && position.ver==end){
+          velocity.hor=0;
+          velocity.ver=1;
+        }
 
+      }
+
+    }
+    public void recurCircular(int start, int end, int round){
+      int cornerValue;
+      int middleValue;
+      
     }
     public String toString(){
       String formatter = "";
