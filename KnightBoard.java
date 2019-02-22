@@ -34,8 +34,8 @@ public class KnightBoard{
       for(MoverV1 mover: movers){
         int hor = mover.getHor();
         int ver = mover.getVer();
-        if(checker(hor,ver)){
-          if(solveH(hor,ver,level+1))return true;
+        if(checker(row+hor,col+ver)){
+          if(solveH(row+hor,col+ver,level+1))return true;
         }
       }
       return false;
@@ -55,7 +55,7 @@ public class KnightBoard{
         }
       }
     }
-    public int countSolutionsH(int startingRow, int StartingCol, int level){
+    public int countSolutionsH(int startingRow, int startingCol, int level){
       board[startingRow][startingCol]=level;
       if(level==board.length*board[0].length) return 1;
       ArrayList <MoverV1> movers = MoverV1.pos();
@@ -63,8 +63,8 @@ public class KnightBoard{
       for(MoverV1 mover: movers){
         int hor = mover.getHor();
         int ver = mover.getVer();
-        if(checker(hor,ver)){
-          sum+=countSolutionsH(hor,ver,level+1));
+        if(checker(startingRow+hor,startingCol+ver)){
+          sum+=countSolutionsH(startingRow+hor,startingCol+ver,level+1));
         }
       }
       return sum;
