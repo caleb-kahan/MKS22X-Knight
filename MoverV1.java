@@ -9,6 +9,7 @@ public class MoverV1{
     this.ver = vertical;
   }
   public static ArrayList<MoverV1> pos (){
+    ArrayList<MoverV1> pos = new ArrayList<MoverV1>();
     for(int i=0;i<2;i++){
       int hoz = (k%2==0) ? 2 : 1;
       int vert = (hoz==2) ? 1 : 2;
