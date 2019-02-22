@@ -54,6 +54,11 @@ public class KnightBoard{
             throw IllegalStateException("Non-0 Values on Board!!");
         }
       }
+    }
+    public int countSolutionsH(int startingRow, int StartingCol, int level){
+      
+    }
+
 
 
 
