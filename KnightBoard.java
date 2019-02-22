@@ -117,19 +117,20 @@ public class KnightBoard{
       ArrayList <MoverV1> movers1 = MoverV1.pos();
       ArrayList <MoverV2> movers2 = new ArrayList <MoverV2>();
       for(MoverV1 mover: movers){
-        int hor = mover.getHor();
-        int ver = mover.getVer();
-        if(checker(startingRow+hor,startingCol+ver)){
-
+        int hor = mover.hor;
+        int ver = mover.ver;
+        int finalHor = startingRow+hor;
+        int finalVer = startingCol+ver;
+        if(checker(finalHor,finalVer)){
+          movers2.add(new MoverV2(finalHor,finalVer,complicatedBoard[finalHor][finalVer]));
         }
       }
+      movers2 = Collections.sort(movers2);
       int sum =0;
-      for(MoverV1 mover: movers){
-        int hor = mover.getHor();
-        int ver = mover.getVer();
-        if(checker(startingRow+hor,startingCol+ver)){
-          sum+=countSolutionsH(startingRow+hor,startingCol+ver,level+1);
-        }
+      for(MoverV2 mover: movers){
+        int hor = mover.hor;
+        int ver = mover.ver;
+        sum+=countSolutionsH(hor,ver,level+1);
       }
       return sum;
     }
