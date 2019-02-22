@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+
 public class KnightBoard{
     private int [][] board;
     private int [][] complicatedBoard;
@@ -127,7 +129,7 @@ public class KnightBoard{
           movers2.add(new MoverV2(finalHor,finalVer,complicatedBoard[finalHor][finalVer]));
         }
       }
-      movers2 = Collections.sort(movers2);
+      Collections.sort(movers2);
       int sum =0;
       for(MoverV2 mover: movers){
         int hor = mover.hor;
