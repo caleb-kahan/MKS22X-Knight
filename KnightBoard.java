@@ -4,6 +4,7 @@ public class KnightBoard{
     public KnightBoard(int startingRows, int startingCols){
       if(startingCols <=0 || startingRows<=0)throw IllegalArgumentException("A parameter is less than 1");
       board = new int [startingRows][startingCols];
+      complicatedBoard = new int [startingRows][startingCols];
     }
     public void maker(int [][] complex){
       int start =0;
@@ -44,24 +45,27 @@ public class KnightBoard{
           middleValue=8;
       }
       MoverV1 velocity = new MoverV1(1,0);
-      MoverV1 position = new MoverV1(0,0);
-      while(position.hor()!=0 || position.ver()!=1){
+      MoverV1 position = new MoverV1(start,start);
+      while(position.hor()!=start || position.ver()!=start+1){
         if(position.hor==end && position.ver==start){
           velocity.hor=0;
           velocity.ver=1;
+          board[position.hor][position.ver]=cornerValue;
         }
         else if(position.hor==end && position.ver==end){
           velocity.hor=-1;
           velocity.ver=0;
+          board[position.hor][position.ver]=cornerValue;
         }
         else if(position.hor==0 && position.ver==end){
           velocity.hor=0;
           velocity.ver=1;
+          board[position.hor][position.ver]=cornerValue;
         }
-
+        else
+          board[position.hor][position.ver]=middleValue;
       }
-
-
+      recursCircular(start+1,end-1,round+1);
     }
     public String toString(){
       String formatter = "";
