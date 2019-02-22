@@ -98,7 +98,7 @@ public class KnightBoard{
       return false;
     }
     private boolean checker(int row, int col){
-        if(startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[0].length || board[row][col]!=0)
+        if(row < 0 || col < 0 || row >= board.length || col >= board[0].length || board[row][col]!=0)
           return false;
         return true;
     }
