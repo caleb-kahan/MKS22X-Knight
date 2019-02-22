@@ -58,7 +58,8 @@ public class KnightBoard{
     public int countSolutionsH(int startingRow, int startingCol, int level){
       board[startingRow][startingCol]=level;
       if(level==board.length*board[0].length) return 1;
-      ArrayList <MoverV1> movers = MoverV1.pos();
+      ArrayList <MoverV1> movers1 = MoverV1.pos();
+      ArrayList <MoverV2> movers2 = new ArrayList <MoverV2>();
       int sum =0;
       for(MoverV1 mover: movers){
         int hor = mover.getHor();
