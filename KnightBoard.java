@@ -29,6 +29,7 @@ public class KnightBoard{
 
     }
     public void recurCircular(int start, int end, int round){
+
       int cornerValue;
       int middleValue;
       switch(round){
@@ -64,8 +65,11 @@ public class KnightBoard{
         }
         else
           board[position.hor][position.ver]=middleValue;
+       position.hor+=velocity.hor;
+       position.ver+=velocity.ver;
       }
-      recursCircular(start+1,end-1,round+1);
+
+      if(start<end-1)recursCircular(start+1,end-1,round+1);
     }
     public String toString(){
       String formatter = "";
