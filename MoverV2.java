@@ -7,6 +7,6 @@ public class MoverV2 extends MoverV1 implements Comparable<MoverV2>{
   }
   @Override
   public int compareTo(MoverV2 mov){
-    return Integer.valueOf(getPos()).compareTo(mov.getPos());
+    return Integer.valueOf(pos).compareTo(mov.pos);
   }
 }
