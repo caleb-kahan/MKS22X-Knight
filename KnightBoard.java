@@ -61,11 +61,11 @@ public class KnightBoard{
       }
     public String toString(){
       String formatter = "";
-      String [] values = new int[board.length*board[0].length];
+      String [] values = new String[board.length*board[0].length];
       int i =0;
       for(int [] row: board){
         for(int value: row){
-          values[i]+=value;
+          values[i]=value+"";
           formatter += "%2d ";
           i++;
         }
