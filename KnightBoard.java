@@ -59,7 +59,7 @@ public class KnightBoard{
             recursCircular(start+1,end-1,round+1);
         }
         else
-          complicatedBoard[start][end]=cornerValue;
+          complicatedBoard[start][end]=8;
       }
     public String toString(){
       String formatter = "";
