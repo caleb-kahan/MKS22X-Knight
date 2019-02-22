@@ -11,10 +11,12 @@ public class KnightBoard{
     public String toString(){
       String formatter = "";
       String [] values = new int[board.length*board[0].length];
+      int i =0;
       for(int [] row: board){
         for(int value: row){
-          values+=value;
+          values[i]+=value;
           formatter += "%2d ";
+          i++;
         }
         formatter +="%n";
       }
@@ -44,7 +46,7 @@ public class KnightBoard{
       }
       return false;
     }
-    private static boolean checker(int row, int col){
+    private boolean checker(int row, int col){
         if(startingRow < 0 || startingCol < 0 || startingRow >= board.length || startingCol >= board[0].length || board[row][col]!=0)
           return false;
         return true;
@@ -76,7 +78,7 @@ public class KnightBoard{
         int hor = mover.getHor();
         int ver = mover.getVer();
         if(checker(startingRow+hor,startingCol+ver)){
-          sum+=countSolutionsH(startingRow+hor,startingCol+ver,level+1));
+          sum+=countSolutionsH(startingRow+hor,startingCol+ver,level+1);
         }
       }
       return sum;
