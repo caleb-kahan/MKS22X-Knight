@@ -88,6 +88,7 @@ public class KnightBoard{
       return String.format(formatter1,(Object[])values1)+"\n"+String.format(formatter2,(Object[])values2);
     }
     public boolean solve(int startingRow, int startingCol){
+      ArrayList <MoverV1> movers1 = MoverV1.pos();
       if(! checker(startingRow,startingCol))
         throw new IllegalArgumentException("Parameter Out of Bounds");
       for(int [] row: regBoard){
@@ -96,12 +97,11 @@ public class KnightBoard{
             throw new IllegalStateException("Non-0 Values on Board!!");
         }
       }
-      return solveH(startingRow, startingCol, 1);
+      return solveH(startingRow, startingCol, 1, movers1);
     }
-    private boolean solveH(int row, int col, int level){
+    private boolean solveH(int row, int col, int level, ArrayList<MoverV1> movers1){
       regBoard[row][col]=level;
       if(level==regBoard.length*regBoard[0].length) return true;
-      ArrayList <MoverV1> movers1 = MoverV1.pos();
       ArrayList <MoverV2> movers2 = new ArrayList <MoverV2>();
       for(MoverV1 mover: movers1){
         int hor = mover.hor;
@@ -116,7 +116,7 @@ public class KnightBoard{
       for(MoverV2 mover: movers2){
         int hor = mover.hor;
         int ver = mover.ver;
-        if(solveH(ver,hor,level+1))return true;
+        if(solveH(ver,hor,level+1,movers1))return true;
       }
       regBoard[row][col]=0;
       return false;
