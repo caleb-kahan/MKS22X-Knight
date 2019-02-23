@@ -56,7 +56,7 @@ public class KnightBoard{
             position.ver+=velocity.ver;
           }
           if(start<end-1)
-            recursCircular(start+1,end-1,round+1);
+            recurCircular(start+1,end-1,round+1);
         }
         else
           complicatedBoard[start][end]=8;
