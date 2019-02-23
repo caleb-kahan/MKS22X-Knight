@@ -56,6 +56,7 @@ public class KnightBoard{
             position.hor+=velocity.hor;
             position.ver+=velocity.ver;
           }
+	  board[position.ver][position.hor]=cornerValue;
           if(start<end-1)
             recurCircular(start+1,end-1,round+1,board);
         }
