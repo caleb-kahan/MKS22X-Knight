@@ -46,7 +46,7 @@ public class KnightBoard{
               velocity.ver=0;
               board[position.hor][position.ver]=cornerValue;
             }
-            else if(position.hor==0 && position.ver==end){
+            else if(position.hor==start && position.ver==end){
               velocity.hor=0;
               velocity.ver=-1;
               board[position.hor][position.ver]=cornerValue;
