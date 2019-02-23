@@ -94,8 +94,8 @@ public class KnightBoard{
       for(MoverV1 mover: movers){
         int hor = mover.hor;
         int ver = mover.ver;
-        if(checker(row+hor,col+ver)){
-          if(solveH(row+hor,col+ver,level+1))return true;
+        if(checker(row+ver,col+hor)){
+          if(solveH(row+ver,col+hor,level+1))return true;
         }
       }
       return false;
