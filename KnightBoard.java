@@ -120,7 +120,7 @@ public class KnightBoard{
       if(level==board.length*board[0].length) return 1;
       ArrayList <MoverV1> movers1 = MoverV1.pos();
       ArrayList <MoverV2> movers2 = new ArrayList <MoverV2>();
-      for(MoverV1 mover: movers){
+      for(MoverV1 mover: movers1){
         int hor = mover.hor;
         int ver = mover.ver;
         int finalHor = startingRow+hor;
