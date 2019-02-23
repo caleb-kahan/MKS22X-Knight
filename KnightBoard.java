@@ -116,11 +116,9 @@ public class KnightBoard{
       for(MoverV2 mover: movers2){
         int hor = mover.hor;
         int ver = mover.ver;
-        if(checker(ver,hor)){
-          if(solveH(ver,hor,level+1))return true;
-        }
+        if(solveH(ver,hor,level+1))return true;
       }
-      //regBoard[row][col]=0;
+      regBoard[row][col]=0;
       return false;
     }
     private boolean checker(int row, int col){
