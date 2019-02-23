@@ -98,6 +98,7 @@ public class KnightBoard{
           if(solveH(row+ver,col+hor,level+1))return true;
         }
       }
+      regBoard[row][col]=0;
       return false;
     }
     private boolean checker(int row, int col){
