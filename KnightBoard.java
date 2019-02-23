@@ -33,7 +33,8 @@ public class KnightBoard{
             middleValue=8;
           }
           MoverV1 velocity = new MoverV1(1,0);
-          MoverV1 position = new MoverV1(start,start);
+          MoverV1 position = new MoverV1(start+1,start);
+	  board[start][start]=cornerValue;
           while(position.hor!=start || position.ver!=start+1){
             if(position.hor==end && position.ver==start){
               velocity.hor=0;
