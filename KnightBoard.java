@@ -91,8 +91,8 @@ public class KnightBoard{
       if(level==board.length*board[0].length) return true;
       ArrayList <MoverV1> movers = MoverV1.pos();
       for(MoverV1 mover: movers){
-        int hor = mover.getHor();
-        int ver = mover.getVer();
+        int hor = mover.hor;
+        int ver = mover.ver;
         if(checker(row+hor,col+ver)){
           if(solveH(row+hor,col+ver,level+1))return true;
         }
