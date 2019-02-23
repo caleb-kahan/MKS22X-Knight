@@ -5,7 +5,7 @@ public class KnightBoard{
     private int [][] board;
     private int [][] complicatedBoard;
     public KnightBoard(int startingRows, int startingCols){
-      if(startingCols <=0 || startingRows<=0)throw new IllegalArgumentException("A parameter is less than 1");
+      if(startingCols <=0 || startingRows<=0) throw new IllegalArgumentException("Parameter less than 1");
       board = new int [startingRows][startingCols];
       complicatedBoard = new int [startingRows][startingCols];
       maker(complicatedBoard);
@@ -13,7 +13,7 @@ public class KnightBoard{
     public void maker(int [][] complex){
       int start =0;
       int end = board.length-1;
-      recursCircular(start,end,1);
+      recurCircular(start,end,1);
     }
     public void recurCircular(int start, int end, int round){
       if(start!=end){
