@@ -109,7 +109,7 @@ public class KnightBoard{
         int finalHor = col+hor;
         int finalVer = row+ver;
         if(checker(finalVer,finalHor)){
-          movers2.add(new MoverV2(finalVer,finalHor,comBoard[finalVer][finalHor]));
+          movers2.add(new MoverV2(finalHor,finalVer,comBoard[finalVer][finalHor]));
         }
       }
       Collections.sort(movers2);
