@@ -5,8 +5,8 @@ public class MoverV1{
   public int ver;
 
   public MoverV1(int horizontal, int vertical){
-    this.hor = horizontal;
-    this.ver = vertical;
+    hor = horizontal;
+    ver = vertical;
   }
   public static ArrayList<MoverV1> pos (){
     ArrayList<MoverV1> pos = new ArrayList<MoverV1>();
@@ -21,5 +21,6 @@ public class MoverV1{
         }
       }
     }
+    return pos;
   }
 }
