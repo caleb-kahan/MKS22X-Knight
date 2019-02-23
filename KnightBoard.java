@@ -69,7 +69,7 @@ public class KnightBoard{
       for(int [] row: regBoard){
         for(int value: row){
           values[i]=value+"";
-          formatter += "%2d ";
+          formatter += "%2s ";
           i++;
         }
         formatter +="%n";
