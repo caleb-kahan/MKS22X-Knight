@@ -33,7 +33,7 @@ public class KnightBoard{
             middleValue=8;
           }
           MoverV1 velocity = new MoverV1(1,0);
-          MoverV1 position = new MoverV1(start,start+1);
+          MoverV1 position = new MoverV1(start+1,start);
 	  board[start][start]=cornerValue;
           while(position.hor!=start || position.ver!=start+1){
             if(position.hor==end && position.ver==start){
@@ -63,18 +63,28 @@ public class KnightBoard{
           board[start][end]=8;
       }
     public String toString(){
-      String formatter = "";
-      String [] values = new String[regBoard.length*regBoard[0].length];
+      String formatter1= "", formatter2= "";
+      String [] values1 = new String[regBoard.length*regBoard[0].length], 
+		values2 =new String[regBoard.length*regBoard[0].length];
       int i =0;
       for(int [] row: regBoard){
         for(int value: row){
-          values[i]=value+"";
-          formatter += "%2s ";
+          values1[i]=value+"";
+          formatter1 += "%2s ";
           i++;
         }
-        formatter +="%n";
+        formatter1 +="%n";
       }
-      return String.format(formatter,(Object[])values);
+      int j =0;
+      for(int [] row: comBoard){
+        for(int value: row){
+          values2[j]=value+"";
+          formatter2 += "%2s ";
+          j++;
+        }
+        formatter2 +="%n";
+      }
+      return String.format(formatter1,(Object[])values1)+"\n"+String.format(formatter2,(Object[])values2);
     }
     public boolean solve(int startingRow, int startingCol){
       if(! checker(startingRow,startingCol))
@@ -90,15 +100,26 @@ public class KnightBoard{
     private boolean solveH(int row, int col, int level){
       regBoard[row][col]=level;
       if(level==regBoard.length*regBoard[0].length) return true;
-      ArrayList <MoverV1> movers = MoverV1.pos();
-      for(MoverV1 mover: movers){
+      ArrayList <MoverV1> movers1 = MoverV1.pos();
+      ArrayList <MoverV2> movers2 = new ArrayList <MoverV2>();
+      for(MoverV1 mover: movers1){
         int hor = mover.hor;
         int ver = mover.ver;
-        if(checker(row+ver,col+hor)){
-          if(solveH(row+ver,col+hor,level+1))return true;
+        int finalHor = col+hor;
+        int finalVer = row+ver;
+        if(checker(finalVer,finalHor)){
+          movers2.add(new MoverV2(finalVer,finalHor,comBoard[finalVer][finalHor]));
         }
       }
-      regBoard[row][col]=0;
+      Collections.sort(movers2);
+      for(MoverV2 mover: movers2){
+        int hor = mover.hor;
+        int ver = mover.ver;
+        if(checker(ver,hor)){
+          if(solveH(ver,hor,level+1))return true;
+        }
+      }
+      //regBoard[row][col]=0;
       return false;
     }
     private boolean checker(int row, int col){
@@ -140,6 +161,7 @@ public class KnightBoard{
         int ver = mover.ver;
         sum+=countSolutionsH(ver,hor,level+1);
       }
+      regBoard[startingRow][startingCol]=0;
       return sum;
     }
 }
