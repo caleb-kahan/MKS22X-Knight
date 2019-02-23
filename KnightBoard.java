@@ -15,7 +15,7 @@ public class KnightBoard{
       int end = comBoard.length-1;
       recurCircular(start,end,1,comBoard);
     }
-    public void recurCircular(int start, int end, int round, int board){
+    public void recurCircular(int start, int end, int round, int[][] board){
       if(start!=end){
         int cornerValue;
         int middleValue;
