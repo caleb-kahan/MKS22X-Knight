@@ -131,7 +131,7 @@ public class KnightBoard{
       }
       Collections.sort(movers2);
       int sum =0;
-      for(MoverV2 mover: movers){
+      for(MoverV2 mover: movers2){
         int hor = mover.hor;
         int ver = mover.ver;
         sum+=countSolutionsH(hor,ver,level+1);
