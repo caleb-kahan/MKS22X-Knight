@@ -8,6 +8,11 @@ public class MoverV1{
     hor = horizontal;
     ver = vertical;
   }
+  @Override
+  public String toString(){
+	return "H: "+ hor+ " V: "+ ver+ "\n";
+  }
+ 
   public static ArrayList<MoverV1> pos (){
     ArrayList<MoverV1> pos = new ArrayList<MoverV1>();
     for(int i=0;i<2;i++){
