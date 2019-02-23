@@ -10,7 +10,7 @@ public class MoverV1{
   }
   @Override
   public String toString(){
-	return "H: "+ hor+ " V: "+ ver+ "\n";
+	return "H:"+ hor+ " V:"+ ver+ "\n";
   }
  
   public static ArrayList<MoverV1> pos (){
