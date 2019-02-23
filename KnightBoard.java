@@ -33,26 +33,26 @@ public class KnightBoard{
             middleValue=8;
           }
           MoverV1 velocity = new MoverV1(1,0);
-          MoverV1 position = new MoverV1(start+1,start);
+          MoverV1 position = new MoverV1(start,start+1);
 	  board[start][start]=cornerValue;
           while(position.hor!=start || position.ver!=start+1){
             if(position.hor==end && position.ver==start){
               velocity.hor=0;
               velocity.ver=1;
-              board[position.hor][position.ver]=cornerValue;
+              board[position.ver][position.hor]=cornerValue;
             }
             else if(position.hor==end && position.ver==end){
               velocity.hor=-1;
               velocity.ver=0;
-              board[position.hor][position.ver]=cornerValue;
+              board[position.ver][position.hor]=cornerValue;
             }
             else if(position.hor==start && position.ver==end){
               velocity.hor=0;
               velocity.ver=-1;
-              board[position.hor][position.ver]=cornerValue;
+              board[position.ver][position.hor]=cornerValue;
             }
             else
-              board[position.hor][position.ver]=middleValue;
+              board[position.ver][position.hor]=middleValue;
             position.hor+=velocity.hor;
             position.ver+=velocity.ver;
           }
@@ -127,10 +127,10 @@ public class KnightBoard{
       for(MoverV1 mover: movers1){
         int hor = mover.hor;
         int ver = mover.ver;
-        int finalHor = startingRow+hor;
-        int finalVer = startingCol+ver;
-        if(checker(finalHor,finalVer)){
-          movers2.add(new MoverV2(finalHor,finalVer,comBoard[finalHor][finalVer]));
+        int finalHor = startingCol+hor;
+        int finalVer = startingRow+ver;
+        if(checker(finalVer,finalHor)){
+          movers2.add(new MoverV2(finalVer,finalHor,comBoard[finalVer][finalHor]));
         }
       }
       Collections.sort(movers2);
@@ -138,7 +138,7 @@ public class KnightBoard{
       for(MoverV2 mover: movers2){
         int hor = mover.hor;
         int ver = mover.ver;
-        sum+=countSolutionsH(hor,ver,level+1);
+        sum+=countSolutionsH(ver,hor,level+1);
       }
       return sum;
     }
