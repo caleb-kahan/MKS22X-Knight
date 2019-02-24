@@ -116,7 +116,7 @@ public class KnightBoard{
       for(MoverV2 mover: movers2){
         int hor = mover.hor;
         int ver = mover.ver;
-	comBoard[ver][hor]-=1;
+	//comBoard[ver][hor]-=1;
         if(solveH(ver,hor,level+1,movers1))return true;
 	
       }
