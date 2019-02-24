@@ -1,6 +1,6 @@
 public class KnightDriver{
     public static void main(String [] args){
-      KnightBoard board = new KnightBoard(60,60);
+      KnightBoard board = new KnightBoard(11,11);
       /*for(MoverV1 mover: MoverV1.pos()){
 	System.out.println(mover);
       }*/

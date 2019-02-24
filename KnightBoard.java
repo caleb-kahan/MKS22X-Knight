@@ -109,14 +109,14 @@ public class KnightBoard{
         int finalHor = col+hor;
         int finalVer = row+ver;
         if(checker(finalVer,finalHor)){
-          movers2.add(new MoverV2(finalHor,finalVer,comBoard[finalVer][finalHor]));
+          movers2.add(new MoverV2(finalHor,finalVer,comBoard[finalVer][finalHor]--));
         }
       }
       Collections.sort(movers2);
       for(MoverV2 mover: movers2){
         int hor = mover.hor;
         int ver = mover.ver;
-	comBoard[ver][hor]--;
+	//comBoard[ver][hor]--;
         if(solveH(ver,hor,level+1,movers1))return true;
 	
       }
