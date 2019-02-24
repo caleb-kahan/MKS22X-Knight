@@ -8,76 +8,50 @@ public class KnightBoard{
       if(startingCols <=0 || startingRows<=0) throw new IllegalArgumentException("Parameter less than 1");
       regBoard = new int [startingRows][startingCols];
       comBoard = new int [startingRows][startingCols];
-      maker(comBoard);
+      manualMaker();
     }
-    public void maker(int [][] comBoard){
-      int start =0;
-      int end = comBoard.length-1;
-      recurCircular(start,end,1,comBoard);
-      if(comBoard.length<=5)
+    private int convert(int x){
+	if(x>3) return 3;
     }
     public void manualMaker(){
       for(int i=0;i<comBoard.length;i++){
         for(int j=0;j<comBoard[0].length;j++){
-          int pos =0;
-          ArrayList<MoverV1> movers = MoverV1.pos();
-          for(MoverV1 mover: movers){
-            if(checker(mover.ver+i,mover.hor+j)){
-              pos++;
-            }
-          }
+	  int pos =0;
+	  int vertDist1 = convert(i+1);
+	  int vertDist2 = convert(comBoard.length-i);
+	  int verMax = Math.max(vertDist1,vertDist2);
+	  int horDist1 =  convert(j+1);
+	  int horDist2 =  convert(comBoard[0].length-j);
+          int horMax = Math.max(horMax1,horMax2);
+	  int sum = vertDist1+vertDist2 + horDist1+horDist2;
+
+	  //If Dist is 3 on all sides, every move is possible. 
+          if(sum == 12) pos =8;
+	  //Two moves become unpossible, so 8-2=6
+	  if(sum == 11) pos =6;
+	  //Now first Quandary, sum ==10. Two pos: 3+3+3+1: 4 or 2+2+3+3: 4. 
+	  if(sum==10) pos =4;
+	  //Now second quandary, sum ==9. Two possibilities. 3,3,2,1 or 2,2,2,3. 
+	  //If sum is 2,2,2,3 only two outgoing moves. 
+	  //If sum is 3,3,2,1. 33+21:only two outgoing , 32+31: 3 outgoing.
+	  if(sum == 9) {
+		pos=2;
+		if(verMax==3&&horMax==3) pos = 3;
+	  }
+	  //Now complicated, sum ==8. 2222=0 or 3221=1,2 or 3311=0,2.
+	  if(sum ==8){
+		if(verMax==3 && horMax==3) pos =3;
+		else if(verDist1+verDist2==4) pos=2;
+		else if(verDist1+verDist2%2==1) pos =1;
+	  }
+	  //sum ==7, 3211=0,1 or 2221=0.
+	  if(sum == 7 && verMax>1 && horMax>1)
+		pos =1;
+	  //Automatically, pos becomes 0. 
           comBoard[i][j]=pos;
         }
       }
     }
-    public void recurCircular(int start, int end, int round, int[][] board){
-      if(start!=end){
-        int cornerValue;
-        int middleValue;
-        switch(round){
-          case 1:
-            cornerValue=2;
-            middleValue=3;
-            break;
-          case 2:
-            cornerValue=4;
-            middleValue=6;
-            break;
-          default:
-            cornerValue=8;
-            middleValue=8;
-          }
-          MoverV1 velocity = new MoverV1(1,0);
-          MoverV1 position = new MoverV1(start+1,start);
-	  board[start][start]=cornerValue;
-          while(position.hor!=start || position.ver!=start+1){
-            if(position.hor==end && position.ver==start){
-              velocity.hor=0;
-              velocity.ver=1;
-              board[position.ver][position.hor]=cornerValue;
-            }
-            else if(position.hor==end && position.ver==end){
-              velocity.hor=-1;
-              velocity.ver=0;
-              board[position.ver][position.hor]=cornerValue;
-            }
-            else if(position.hor==start && position.ver==end){
-              velocity.hor=0;
-              velocity.ver=-1;
-              board[position.ver][position.hor]=cornerValue;
-            }
-            else
-              board[position.ver][position.hor]=middleValue;
-            position.hor+=velocity.hor;
-            position.ver+=velocity.ver;
-          }
-	  board[position.ver][position.hor]=middleValue;
-          if(start<end-1)
-            recurCircular(start+1,end-1,round+1,board);
-        }
-        else
-          board[start][end]=8;
-      }
     public String toString(){
       String formatter1= "", formatter2= "";
       String [] values1 = new String[regBoard.length*regBoard[0].length],
