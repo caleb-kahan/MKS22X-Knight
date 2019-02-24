@@ -142,7 +142,10 @@ public class KnightBoard{
     }
     public int countSolutionsH(int startingRow, int startingCol, int level, ArrayList<MoverV1> movers1){
       regBoard[startingRow][startingCol]=level;
-      if(level==regBoard.length*regBoard[0].length) return 1;
+      if(level==regBoard.length*regBoard[0].length) {
+	regBoard[startingRow][startingCol]=0;
+	return 1;
+      }
       int sum =0;
       for(MoverV1 mover: movers1){
         int hor = mover.hor;
