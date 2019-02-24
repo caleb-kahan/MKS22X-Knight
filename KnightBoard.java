@@ -12,18 +12,19 @@ public class KnightBoard{
     }
     private int convert(int x){
 	if(x>3) return 3;
+	return x;
     }
     public void manualMaker(){
       for(int i=0;i<comBoard.length;i++){
         for(int j=0;j<comBoard[0].length;j++){
 	  int pos =0;
-	  int vertDist1 = convert(i+1);
-	  int vertDist2 = convert(comBoard.length-i);
-	  int verMax = Math.max(vertDist1,vertDist2);
+	  int verDist1 = convert(i+1);
+	  int verDist2 = convert(comBoard.length-i);
+	  int verMax = Math.max(verDist1,verDist2);
 	  int horDist1 =  convert(j+1);
 	  int horDist2 =  convert(comBoard[0].length-j);
-          int horMax = Math.max(horMax1,horMax2);
-	  int sum = vertDist1+vertDist2 + horDist1+horDist2;
+          int horMax = Math.max(horDist1,horDist2);
+	  int sum = verDist1+verDist2 + horDist1+horDist2;
 
 	  //If Dist is 3 on all sides, every move is possible. 
           if(sum == 12) pos =8;
