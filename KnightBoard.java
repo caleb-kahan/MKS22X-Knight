@@ -7,8 +7,8 @@ public class KnightBoard{
     public KnightBoard(int startingRows, int startingCols){
       if(startingCols <=0 || startingRows<=0) throw new IllegalArgumentException("Parameter less than 1");
       regBoard = new int [startingRows][startingCols];
-      //comBoard = new int [startingRows][startingCols];
-      //maker(comBoard);
+      comBoard = new int [startingRows][startingCols];
+      maker(comBoard);
     }
     public void maker(int [][] comBoard){
       int start =0;
