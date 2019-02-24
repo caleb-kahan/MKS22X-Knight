@@ -117,12 +117,7 @@ public class KnightBoard{
         int hor = mover.hor;
         int ver = mover.ver;
         if(solveH(ver,hor,level+1,movers1))return true;
-	
-      }
-      for(MoverV2 mover: movers2){
-        int hor = mover.hor;
-        int ver = mover.ver;
-	comBoard[ver][hor]+=1;
+	comBoard[ver][hor]++;
       }
       regBoard[row][col]=0;
       return false;
@@ -143,12 +138,11 @@ public class KnightBoard{
             throw new IllegalStateException("Non-0 Values on Board!!");
         }
       }
-      return countSolutionsH(startingRow, startingCol, 1);
+      return countSolutionsH(startingRow, startingCol, 1, MoverV1.pos());
     }
-    public int countSolutionsH(int startingRow, int startingCol, int level){
+    public int countSolutionsH(int startingRow, int startingCol, int level, ArrayList<MoverV1> movers1){
       regBoard[startingRow][startingCol]=level;
       if(level==regBoard.length*regBoard[0].length) return 1;
-      ArrayList <MoverV1> movers1 = MoverV1.pos();
       ArrayList <MoverV2> movers2 = new ArrayList <MoverV2>();
       for(MoverV1 mover: movers1){
         int hor = mover.hor;
@@ -156,7 +150,7 @@ public class KnightBoard{
         int finalHor = startingCol+hor;
         int finalVer = startingRow+ver;
         if(checker(finalVer,finalHor)){
-          movers2.add(new MoverV2(finalVer,finalHor,comBoard[finalVer][finalHor]));
+          movers2.add(new MoverV2(finalVer,finalHor,comBoard[finalVer][finalHor]--));
         }
       }
       Collections.sort(movers2);
@@ -164,7 +158,7 @@ public class KnightBoard{
       for(MoverV2 mover: movers2){
         int hor = mover.hor;
         int ver = mover.ver;
-        sum+=countSolutionsH(ver,hor,level+1);
+        sum+=countSolutionsH(ver,hor,level+1,movers1);
       }
       regBoard[startingRow][startingCol]=0;
       return sum;
