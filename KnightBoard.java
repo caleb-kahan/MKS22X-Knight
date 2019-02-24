@@ -159,6 +159,7 @@ public class KnightBoard{
         int hor = mover.hor;
         int ver = mover.ver;
         sum+=countSolutionsH(ver,hor,level+1,movers1);
+	comBoard[ver][hor]++;
       }
       regBoard[startingRow][startingCol]=0;
       return sum;
