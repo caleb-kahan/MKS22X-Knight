@@ -15,6 +15,16 @@ public class KnightBoard{
       int end = comBoard.length-1;
       recurCircular(start,end,1,comBoard);
     }
+    public void manualMaker(){
+      for(int i=0;i<comBoard.length;i++){
+        for(int j=0;j<comBoard[0].length;j++){
+          int verDist1 = i+1;
+          int verDist2 = comBoard.length-i);
+          int hozDist1 = j+1;
+          int hozDist2 = comBoard.length[0]-j;
+        }
+      }
+    }
     public void recurCircular(int start, int end, int round, int[][] board){
       if(start!=end){
         int cornerValue;
@@ -65,7 +75,7 @@ public class KnightBoard{
       }
     public String toString(){
       String formatter1= "", formatter2= "";
-      String [] values1 = new String[regBoard.length*regBoard[0].length], 
+      String [] values1 = new String[regBoard.length*regBoard[0].length],
 		values2 =new String[regBoard.length*regBoard[0].length];
       int i =0;
       for(int [] row: regBoard){
@@ -123,8 +133,8 @@ public class KnightBoard{
       return false;
     }
     private boolean checker(int row, int col){
-        if(row < 0 || col < 0 || 
-           row >= regBoard.length || 
+        if(row < 0 || col < 0 ||
+           row >= regBoard.length ||
            col >= regBoard[0].length || regBoard[row][col]!=0)
           return false;
         return true;
