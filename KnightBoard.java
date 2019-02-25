@@ -18,10 +18,14 @@ public class KnightBoard{
     public void manualMaker(){
       for(int i=0;i<comBoard.length;i++){
         for(int j=0;j<comBoard[0].length;j++){
-          int verDist1 = i+1;
-          int verDist2 = comBoard.length-i);
-          int hozDist1 = j+1;
-          int hozDist2 = comBoard.length[0]-j;
+          int pos =0;
+          ArrayList<MoverV1> movers = MoverV1.pos();
+          for(MoverV1 mover: movers){
+            if(checker(mover.ver+i,mover.hor+j)){
+              pos++;
+            }
+          }
+          comBoard[i][j]=pos;
         }
       }
     }
