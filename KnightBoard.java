@@ -14,6 +14,7 @@ public class KnightBoard{
       int start =0;
       int end = comBoard.length-1;
       recurCircular(start,end,1,comBoard);
+      if(comBoard.length<=5)
     }
     public void manualMaker(){
       for(int i=0;i<comBoard.length;i++){
