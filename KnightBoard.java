@@ -26,14 +26,14 @@ public class KnightBoard{
           int horMax = Math.max(horDist1,horDist2);
 	  int sum = verDist1+verDist2 + horDist1+horDist2;
 
-	  //If Dist is 3 on all sides, every move is possible. 
+	  //If Dist is 3 on all sides, every move is possible.
           if(sum == 12) pos =8;
 	  //Two moves become unpossible, so 8-2=6
 	  if(sum == 11) pos =6;
-	  //Now first Quandary, sum ==10. Two pos: 3+3+3+1: 4 or 2+2+3+3: 4. 
+	  //Now first Quandary, sum ==10. Two pos: 3+3+3+1: 4 or 2+2+3+3: 4.
 	  if(sum==10) pos =4;
-	  //Now second quandary, sum ==9. Two possibilities. 3,3,2,1 or 2,2,2,3. 
-	  //If sum is 2,2,2,3 only two outgoing moves. 
+	  //Now second quandary, sum ==9. Two possibilities. 3,3,2,1 or 2,2,2,3.
+	  //If sum is 2,2,2,3 only two outgoing moves.
 	  //If sum is 3,3,2,1. 33+21:only two outgoing , 32+31: 3 outgoing.
 	  if(sum == 9) {
 		pos=2;
@@ -48,7 +48,7 @@ public class KnightBoard{
 	  //sum ==7, 3211=0,1 or 2221=0.
 	  if(sum == 7 && verMax>1 && horMax>1)
 		pos =1;
-	  //Automatically, pos becomes 0. 
+	  //Automatically, pos becomes 0.
           comBoard[i][j]=pos;
         }
       }
@@ -61,6 +61,8 @@ public class KnightBoard{
       for(int [] row: regBoard){
         for(int value: row){
           values1[i]=value+"";
+          //????
+          if(values[i]=="0")values[i]="_";
           formatter1 += "%2s ";
           i++;
         }
