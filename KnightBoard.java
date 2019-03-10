@@ -63,21 +63,22 @@ public class KnightBoard{
           values1[i]=value+"";
           //????
           if(values1[i]=="0") values1[i]="_";
-          formatter1 += "%2s ";
+          formatter1 += "%3s ";
           i++;
         }
         formatter1 +="%n";
       }
-      int j =0;
+      //For Debugging Purposes
+      /*int j =0;
       for(int [] row: comBoard){
         for(int value: row){
           values2[j]=value+"";
-          formatter2 += "%2s ";
+          formatter2 += "%1s ";
           j++;
         }
         formatter2 +="%n";
-      }
-      return String.format(formatter1,(Object[])values1)+"\n"+String.format(formatter2,(Object[])values2);
+      }*/
+      return String.format(formatter1,(Object[])values1);//+"\n"+String.format(formatter2,(Object[])values2);
     }
     public boolean solve(int startingRow, int startingCol){
       ArrayList <MoverV1> movers1 = MoverV1.pos();
