@@ -14,7 +14,7 @@ public class KnightBoard{
 	if(x>3) return 3;
 	return x;
     }
-    public void manualMaker(){
+    private void manualMaker(){
       for(int i=0;i<comBoard.length;i++){
         for(int j=0;j<comBoard[0].length;j++){
 	  int pos =0;
@@ -68,7 +68,7 @@ public class KnightBoard{
           values1[i]=value+"";
           //????
           if(values1[i]=="0") values1[i]="_";
-          formatter1 += "%3s ";
+          formatter1 += "%2s ";
           i++;
         }
         formatter1 +="%n";
@@ -143,7 +143,7 @@ public class KnightBoard{
       }
       return countSolutionsH(startingRow, startingCol, 1, MoverV1.pos());
     }
-    public int countSolutionsH(int startingRow, int startingCol, int level, ArrayList<MoverV1> movers1){
+    private int countSolutionsH(int startingRow, int startingCol, int level, ArrayList<MoverV1> movers1){
       regBoard[startingRow][startingCol]=level;
       if(level==regBoard.length*regBoard[0].length) {
 	regBoard[startingRow][startingCol]=0;
