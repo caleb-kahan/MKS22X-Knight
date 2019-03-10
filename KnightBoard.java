@@ -67,7 +67,7 @@ public class KnightBoard{
         for(int value: row){
           values1[i]=value+"";
           //????
-          if(values1[i]=="0") values1[i]="_";
+          if(value==0) values1[i]="_";
           formatter1 += "%2s ";
           i++;
         }
