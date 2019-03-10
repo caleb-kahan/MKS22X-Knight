@@ -74,7 +74,7 @@ public class KnightBoard{
         formatter1 +="%n";
       }
       //For Debugging Purposes
-      int j =0;
+      /*int j =0;
       for(int [] row: comBoard){
         for(int value: row){
           values2[j]=value+"";
@@ -82,8 +82,8 @@ public class KnightBoard{
           j++;
         }
         formatter2 +="%n";
-      }
-      return /*String.format(formatter1,(Object[])values1)+;*/"\n"+String.format(formatter2,(Object[])values2);
+      }*/
+      return String.format(formatter1,(Object[])values1);//"\n"+String.format(formatter2,(Object[])values2);
     }
     public boolean solve(int startingRow, int startingCol){
       ArrayList <MoverV1> movers1 = MoverV1.pos();
@@ -95,7 +95,12 @@ public class KnightBoard{
             throw new IllegalStateException("Non-0 Values on Board!!");
         }
       }
-      return solveH(startingRow, startingCol, 1, movers1);
+      boolean good = solveH(startingRow, startingCol, 1, movers1);
+      if(! good){
+        regBoard = new int [regBoard.length][regBoard[0].length];
+        manualMaker();
+      }
+      return good;
     }
     private boolean solveH(int row, int col, int level, ArrayList<MoverV1> movers1){
       regBoard[row][col]=level;

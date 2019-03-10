@@ -1,8 +1,7 @@
 public class KnightDriver{
     public static void main(String [] args){
-      for(int i=5;i<15;i++){
-        KnightBoard board = new KnightBoard(i,i-1);
-        System.out.println(board);
+      for(int i=1;i<15;i++){
+        KnightBoard board = new KnightBoard(i,i);
         System.out.println(board.solve(0,0));
         System.out.println(board);
       }
@@ -10,8 +9,8 @@ public class KnightDriver{
       //System.out.println(board.countSolutions(0,0));
       //System.out.println(board.solve(0,0));
       //System.out.println(board);
-      //for(int i =0;i<5;i++)
-	     //runTest(i);
+      for(int i =0;i<5;i++)
+	       runTest(i);
     }
     //testcase must be a valid index of your input/output array
 public static void runTest(int i){
