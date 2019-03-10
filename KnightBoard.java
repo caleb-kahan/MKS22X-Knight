@@ -23,31 +23,36 @@ public class KnightBoard{
 	  int verMax = Math.max(verDist1,verDist2);
 	  int horDist1 =  convert(j+1);
 	  int horDist2 =  convert(comBoard[0].length-j);
-          int horMax = Math.max(horDist1,horDist2);
+    int horMax = Math.max(horDist1,horDist2);
 	  int sum = verDist1+verDist2 + horDist1+horDist2;
 
 	  //If Dist is 3 on all sides, every move is possible.
-          if(sum == 12) pos =8;
+    if(sum == 12) pos =8;
 	  //Two moves become unpossible, so 8-2=6
 	  if(sum == 11) pos =6;
 	  //Now first Quandary, sum ==10. Two pos: 3+3+3+1: 4 or 2+2+3+3: 4.
 	  if(sum==10) pos =4;
-	  //Now second quandary, sum ==9. Two possibilities. 3,3,2,1 or 2,2,2,3.
+	  //Now second quandary, sum ==9. Three Possibilities.
 	  //If sum is 2,2,2,3 only two outgoing moves.
 	  //If sum is 3,3,2,1. 33+21:only two outgoing , 32+31: 3 outgoing.
-	  if(sum == 9) {
-		pos=2;
-		if(verMax==3&&horMax==3) pos = 3;
-	  }
-	  //Now complicated, sum ==8. 2222=0 or 3221=1,2 or 3311=0,2.
+	  if(sum == 9){
+		    pos=2;
+		    if(verMax==3&&horMax==3) pos = 3;
+   }
+	  //Now complicated, sum ==8.
+    //One:2222 0 Possibilities
+    //Two:3311 0 pos
+    //Three: 3131 2 possible
+    //Four: 2231 2 possible
+    //Five: 2321 1 possible
 	  if(sum ==8){
-		if(verMax==3 && horMax==3) pos =3;
-		else if(verDist1+verDist2==4) pos=2;
-		else if(verDist1+verDist2%2==1) pos =1;
+    if(verMax==2 && horMax==2 || verMax==1 || horMax==1) pos=0;
+    if(verDist1+verDist2==5 || verDist1+verDist2==3) pos=1;
+		else pos =2;
 	  }
 	  //sum ==7, 3211=0,1 or 2221=0.
 	  if(sum == 7 && verMax>1 && horMax>1)
-		pos =1;
+		  pos =1;
 	  //Automatically, pos becomes 0.
           comBoard[i][j]=pos;
         }
@@ -69,7 +74,7 @@ public class KnightBoard{
         formatter1 +="%n";
       }
       //For Debugging Purposes
-      /*int j =0;
+      int j =0;
       for(int [] row: comBoard){
         for(int value: row){
           values2[j]=value+"";
@@ -77,8 +82,8 @@ public class KnightBoard{
           j++;
         }
         formatter2 +="%n";
-      }*/
-      return String.format(formatter1,(Object[])values1);//+"\n"+String.format(formatter2,(Object[])values2);
+      }
+      return /*String.format(formatter1,(Object[])values1)+;*/"\n"+String.format(formatter2,(Object[])values2);
     }
     public boolean solve(int startingRow, int startingCol){
       ArrayList <MoverV1> movers1 = MoverV1.pos();

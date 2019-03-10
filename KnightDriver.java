@@ -1,7 +1,8 @@
 public class KnightDriver{
     public static void main(String [] args){
-      for(int i=1;i<15;i++){
-        KnightBoard board = new KnightBoard(i,i);
+      for(int i=5;i<15;i++){
+        KnightBoard board = new KnightBoard(i,i-1);
+        System.out.println(board);
         System.out.println(board.solve(0,0));
         System.out.println(board);
       }
