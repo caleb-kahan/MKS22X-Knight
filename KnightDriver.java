@@ -2,10 +2,10 @@ public class KnightDriver{
     public static void main(String [] args){
       //KnightBoard board = new KnightBoard(63,63);
       //System.out.println(board.countSolutions(0,0));
-      //System.out.println(board.solve(0,0)); 
-      //System.out.println(board); 
+      //System.out.println(board.solve(0,0));
+      //System.out.println(board);
       for(int i =0;i<5;i++)
-	runTest(i);
+	     runTest(i);
     }
     //testcase must be a valid index of your input/output array
 public static void runTest(int i){
